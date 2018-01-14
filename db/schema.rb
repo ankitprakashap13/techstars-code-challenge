@@ -12,12 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20180114195711) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.integer  "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_categories_on_company_id"
+    t.index ["company_id"], name: "index_categories_on_company_id", using: :btree
   end
 
   create_table "companies", force: :cascade do |t|
@@ -36,7 +39,7 @@ ActiveRecord::Schema.define(version: 20180114195711) do
     t.integer  "company_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["company_id"], name: "index_founders_on_company_id"
+    t.index ["company_id"], name: "index_founders_on_company_id", using: :btree
   end
 
 end
