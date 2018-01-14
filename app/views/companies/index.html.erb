@@ -1,0 +1,22 @@
+<div class="container">
+  <!-- Page Content goes here -->
+  <h1 class="center-align">Companies</h1>
+  <div class="row">
+    <div class="col right">
+      <a class="btn" href="/companies/new">new company</a>
+    </div>
+  </div>
+  <% @companies.each do |company| %>
+    <div class="card">
+      <div class="card-content">
+        <%= link_to 'more', company_url(company.id), class: 'right' %>
+        <div class="card-title">
+          <%= company.name.capitalize %> &nbsp;&nbsp;|&nbsp;&nbsp; <%= company.city %>, <%= company.state %>
+        </div>
+      </div>
+      <div class="card-content">
+        <%= company.description %>
+      </div>
+    </div>
+  <% end %>
+</div>

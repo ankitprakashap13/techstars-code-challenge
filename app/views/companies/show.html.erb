@@ -1,0 +1,59 @@
+<div class="container">
+  <div class="card">
+    <div class="card-content">
+      <div class="row">
+        <span class="card-title col s12"><%= @company.name.try(:capitalize) %></span>
+        <p class="grey-text">
+          <span class="col s2">
+            <%= @company.founded_on.strftime("%B %d, %Y") %>
+          </span>
+          <span class="col s1">|</span>
+          <span class="col s2">
+            <%= @company.city %>
+          </span>
+        </p>
+      </div>
+    </div>
+    <div class="card-content">
+      <p><%= @company.description %></p>
+    </div>
+    <div class="card-action">
+      <%= link_to 'edit', edit_company_url %>
+      <%= link_to "delete", company_url(@company.id), method: :delete, data: {confirm: "You sure?"} %>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-content">
+      <div class="col s2 right">
+        <%= render 'founder_form' %>
+      </div>
+      <div class="card-title">Founders <span class="grey-text">(Fullname : Title)</span></div>
+    </div>
+    <div class="card-content">
+      <div class="row">
+        <div class="col s12">
+          <% @company.founders.map{ |f| "#{f.fullname} : #{f.title}" }.each do |founder| %>
+            <div class="col s4"><%= founder %></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-content">
+      <div class="col s2 right">
+        <%= render 'category_form' %>
+      </div>
+      <div class="card-title">Categories <span class="grey-text">(tags)</span></div>
+    </div>
+    <div class="card-content">
+      <div class="row">
+        <div class="col s12">
+          <% @company.categories.each do |category| %>
+            <div class="col s4"><%= category.name %></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

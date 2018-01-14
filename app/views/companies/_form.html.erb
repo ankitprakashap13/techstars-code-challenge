@@ -1,0 +1,35 @@
+<div class="card">
+  <%= form_for @company, html: {class: "col s12"} do |f| %>
+    <div class="card-content">
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_field :name, class: 'validate' %>
+            <%= f.label :name %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s4">
+            <%= f.text_field :city, class: 'validate' %>
+            <%= f.label :city %>
+          </div>
+          <div class="input-field col s4">
+            <%= f.text_field :state, class: 'validate' %>
+            <%= f.label :state %>
+          </div>
+          <div class="input-field col s4">
+            <%= f.text_field :founded_on, class: 'datepicker' %>
+            <%= f.label :founded_on %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <%= f.text_area :description, class: 'materialize-textarea' %>
+            <%= f.label :description %>
+          </div>
+        </div>
+    </div>
+    <div class="card-action">
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+    </div>
+  <% end %>
+</div>
