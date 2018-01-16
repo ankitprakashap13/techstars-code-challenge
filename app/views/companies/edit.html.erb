@@ -1,4 +1,4 @@
 <div class="container">
-  <h2 class="center-align">Edit Company <%= @company.name %></h2>
+  <h2 class="center-align"><%= link_to '<i class="material-icons">arrow_back</i>'.html_safe, '/companies', class: 'btn-floating btn-large waves-effect waves-light left' %> Edit Company <%= @company.name %></h2>
   <%= render 'form' %>
 </div>

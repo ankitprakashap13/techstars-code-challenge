@@ -1,3 +1,14 @@
+<% if @company.errors.any? %>
+  <div id="error_explanation pulse">
+    <h4><%= pluralize(@company.errors.count, "error") %> prohibited this article from being saved:</h4>
+
+    <ul>
+    <% @company.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 <div class="card">
   <%= form_for @company, html: {class: "col s12"} do |f| %>
     <div class="card-content">
