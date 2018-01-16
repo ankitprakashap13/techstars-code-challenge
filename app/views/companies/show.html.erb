@@ -62,4 +62,16 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="/assets/companies.js"></script>
+<script type="text/javascript">
+$( document ).ready(function() {
+  $('.datepicker').pickadate({
+    selectMonths: true,
+    selectYears: 15,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false
+  });
+  $('.modal').modal();
+});
+</script>
